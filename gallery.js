@@ -23,10 +23,53 @@
   const layout = dialog.querySelector('.gallery-layout');
   const workflow = dialog.querySelector('.gallery-workflow');
   const workflowSteps = document.getElementById('gallery-workflow-steps');
+  const share = dialog.querySelector('[data-gallery-share]');
+  const shareFeedback = dialog.querySelector('.gallery-share-feedback');
+  const shareStatus = document.getElementById('gallery-share-status');
+  const shareUrl = document.getElementById('gallery-share-url');
   let allPhotos = [];
   let visiblePhotos = [];
   let currentIndex = 0;
   let opener = null;
+  let activeGalleryKey = null;
+  let returnHash = galleryKeyFromLocation() ? '#proyectos' : window.location.hash;
+
+  function hasGallery(key) {
+    return Object.prototype.hasOwnProperty.call(galleries, key)
+      && galleries[key].modules.some(module => module.photos.length > 0);
+  }
+
+  function galleryKeyFromLocation() {
+    if (!/^#galeria=[^&]+$/.test(window.location.hash)) return null;
+    const key = new URLSearchParams(window.location.hash.slice(1)).get('galeria');
+    return hasGallery(key) ? key : null;
+  }
+
+  function galleryUrl(key) {
+    const url = new URL(window.location.href);
+    url.hash = `galeria=${encodeURIComponent(key)}`;
+    return url.href;
+  }
+
+  function resetShare() {
+    share.textContent = 'Copiar enlace';
+    shareFeedback.hidden = true;
+    shareStatus.textContent = '';
+    shareUrl.hidden = true;
+    shareUrl.value = '';
+  }
+
+  function syncGalleryFromLocation() {
+    const key = galleryKeyFromLocation();
+    if (key) {
+      const trigger = Array.from(document.querySelectorAll('[data-gallery-open]'))
+        .find(button => button.dataset.galleryOpen === key);
+      openGallery(key, trigger);
+    } else {
+      returnHash = window.location.hash;
+      if (dialog.open) dialog.close();
+    }
+  }
 
   function setZoom(enabled) {
     figure.classList.toggle('is-zoomed', enabled);
@@ -103,8 +146,10 @@
 
   function openGallery(key, trigger) {
     const gallery = galleries[key];
-    if (!gallery || dialog.open) return;
+    if (!hasGallery(key) || (dialog.open && activeGalleryKey === key)) return;
     opener = trigger;
+    activeGalleryKey = key;
+    resetShare();
     title.textContent = gallery.title;
     const steps = Array.isArray(gallery.workflow) ? gallery.workflow : [];
     workflowSteps.replaceChildren(...steps.map(text => {
@@ -123,22 +168,61 @@
     });
     filter.replaceChildren(...options);
     filter.value = 'all';
-    dialog.showModal();
+    if (!dialog.open) dialog.showModal();
     document.documentElement.classList.add('gallery-open');
     applyFilter();
     close.focus({ preventScroll: true });
   }
 
   document.querySelectorAll('[data-gallery-open]').forEach(trigger => {
-    if (!galleries[trigger.dataset.galleryOpen]?.modules.some(module => module.photos.length)) return;
+    if (!hasGallery(trigger.dataset.galleryOpen)) return;
     trigger.hidden = false;
-    trigger.addEventListener('click', () => openGallery(trigger.dataset.galleryOpen, trigger));
+    trigger.addEventListener('click', () => {
+      if (!galleryKeyFromLocation()) returnHash = window.location.hash;
+      window.history.pushState(window.history.state, '', galleryUrl(trigger.dataset.galleryOpen));
+      syncGalleryFromLocation();
+    });
   });
+
+  window.addEventListener('hashchange', syncGalleryFromLocation);
+  window.addEventListener('popstate', syncGalleryFromLocation);
+
+  share.addEventListener('click', async () => {
+    const key = activeGalleryKey;
+    if (!key || !dialog.open) return;
+    const url = galleryUrl(key);
+    const localHint = window.location.protocol === 'file:'
+      ? ' Este enlace es local. Para compartirlo con otras personas, abre tu portafolio publicado y copia el enlace desde allí.'
+      : '';
+    try {
+      await navigator.clipboard.writeText(url);
+      if (activeGalleryKey !== key || !dialog.open) return;
+      share.textContent = 'Enlace copiado';
+      shareUrl.hidden = true;
+      shareStatus.textContent = `Enlace copiado.${localHint}`;
+    } catch {
+      if (activeGalleryKey !== key || !dialog.open) return;
+      share.textContent = 'Copiar enlace';
+      shareStatus.textContent = `Selecciona y copia el enlace del campo.${localHint}`;
+      shareUrl.value = url;
+      shareUrl.hidden = false;
+    }
+    shareFeedback.hidden = false;
+    if (!shareUrl.hidden) {
+      shareUrl.focus({ preventScroll: true });
+      shareUrl.select();
+    }
+  });
+  shareUrl.addEventListener('click', () => shareUrl.select());
 
   filter.addEventListener('change', applyFilter);
   previous.addEventListener('click', () => showPhoto(currentIndex - 1));
   next.addEventListener('click', () => showPhoto(currentIndex + 1));
   close.addEventListener('click', () => dialog.close());
+  dialog.addEventListener('cancel', event => {
+    event.preventDefault();
+    dialog.close();
+  });
   zoom.addEventListener('click', () => setZoom(zoom.getAttribute('aria-pressed') !== 'true'));
 
   // Only a click that starts and ends on the backdrop should close the gallery.
@@ -151,7 +235,7 @@
 
   dialog.addEventListener('keydown', event => {
     if (event.key === 'Tab') {
-      const controls = Array.from(dialog.querySelectorAll('button:not(:disabled):not([tabindex="-1"]), select:not(:disabled), [tabindex="0"]'))
+      const controls = Array.from(dialog.querySelectorAll('button:not(:disabled):not([tabindex="-1"]), select:not(:disabled), input:not(:disabled), [tabindex="0"]'))
         .filter(control => control.getClientRects().length > 0);
       const first = controls[0];
       const last = controls[controls.length - 1];
@@ -174,7 +258,16 @@
   });
 
   dialog.addEventListener('close', () => {
+    // A queued close event must not clear a gallery that has already reopened.
+    if (dialog.open) return;
+    if (activeGalleryKey && galleryKeyFromLocation() === activeGalleryKey) {
+      const url = new URL(window.location.href);
+      url.hash = returnHash;
+      window.history.replaceState(window.history.state, '', url.href);
+    }
+    activeGalleryKey = null;
     document.documentElement.classList.remove('gallery-open');
+    resetShare();
     setZoom(false);
     image.removeAttribute('src');
     image.alt = '';
@@ -185,4 +278,6 @@
     visiblePhotos = [];
     opener?.focus({ preventScroll: true });
   });
+
+  syncGalleryFromLocation();
 })();

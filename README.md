@@ -14,34 +14,50 @@ La segunda tarjeta presenta **Aplicación en React Native**, proyecto final del 
 
 La tercera tarjeta presenta **Réplica Aplicación de Refacciones Clarios**, proyecto final de la clase de aplicaciones web inspirado en el sistema en el que trabajé durante mis prácticas en Clarios, desarrollado con mis propios recursos y datos. Incluye la captura `assets/aplicacion-refacciones-clarios.png`, las tecnologías HTML, CSS, JavaScript, Django, SQL Server, PostgreSQL, Neon y Render, enlaces a la [aplicación web](https://apprefacciones.onrender.com/index.html) y al [repositorio de GitHub](https://github.com/mauricioedlg/appRefacciones), y una galería local con 67 fotos.
 
-Las tres tarjetas presentan proyectos reales y no incluyen caso de estudio. Para añadir otro proyecto:
+La cuarta tarjeta presenta **App Finanzas Mauricio**, la versión web en desarrollo del proyecto final de iOS creado en Swift, inspirada en GBM para simular la compra y venta de acciones de la Bolsa Mexicana de Valores. Incluye la portada `assets/app-finanzas-mauricio.png`, las tecnologías React, Bootstrap, Django, PostgreSQL, Neon, Resend API y Stripe API, el botón **Ver más detalles del proyecto** y el [repositorio de GitHub](https://github.com/mauricioedlg/replicaAppFinanzas). Su galería contiene 15 fotos repartidas entre **Fotos versión web del proyecto** (2 capturas) y **Fotos proyecto original en iOS** (13 capturas). El flujo explica el desarrollo actual, las pruebas de pagos con tarjeta mediante Stripe y la integración futura de una API bursátil para consultar precios precisos por periodos.
+
+Las cuatro tarjetas presentan proyectos reales y no incluyen caso de estudio. Para añadir otro proyecto:
 
 1. Guarda una foto o captura en `assets/`, por ejemplo `assets/mi-proyecto.jpg`.
 2. Busca `id="lista-proyectos"` en `index.html` y duplica un bloque `<article class="project-card">` completo.
 3. Cambia el `src` de su `<img>` por la ruta de tu imagen. Escribe en `alt` una descripción de la foto o captura. Mantén `width` y `height` acordes con las dimensiones de la imagen.
 4. Sustituye el título, el tipo de proyecto, la descripción y las etiquetas de tecnologías.
 5. Actualiza los botones con los enlaces del nuevo proyecto.
-6. Asigna un identificador único al título, por ejemplo `proyecto-04`. Actualiza también el `aria-labelledby` de la tarjeta y los `aria-label` de las tecnologías y los enlaces.
+6. Asigna un identificador único al título, por ejemplo `proyecto-05`. Actualiza también el `aria-labelledby` de la tarjeta y los `aria-label` de las tecnologías y los enlaces.
 
-En escritorio, las tarjetas de proyectos se distribuyen en dos columnas, con la tercera centrada en la fila inferior. En pantallas de hasta 48rem se apilan en una sola columna. Cada tarjeta conserva su estructura vertical: imagen arriba en su propio marco, bloque enmarcado con el título, la descripción y las tecnologías debajo, y botones de enlaces centrados y apilados verticalmente al final, fuera del bloque de descripción. Los botones de las tarjetas de una misma fila quedan alineados. El ajuste de las imágenes se define con `object-fit` en `styles.css`; las capturas con la clase `.project-screenshot` se muestran completas, sin recortarse.
+En escritorio, las cuatro tarjetas de proyectos se distribuyen en dos filas de dos columnas. En pantallas de hasta 48rem se apilan en una sola columna. Cada tarjeta conserva su estructura vertical: imagen arriba en su propio marco, bloque enmarcado con el título, la descripción y las tecnologías debajo, y botones de enlaces centrados y apilados verticalmente al final, fuera del bloque de descripción. Los enlaces al repositorio de las tarjetas de una misma fila quedan alineados. El ajuste de las imágenes se define con `object-fit` en `styles.css`; las capturas con la clase `.project-screenshot` se muestran completas, sin recortarse.
 
 ## Galerías de las aplicaciones
 
-Las tarjetas de React Native y Refacciones incluyen el botón permanente **Ver más detalles del proyecto**, con fondo blanco y letras rojas, encima de los enlaces a la versión web y al repositorio. La imagen principal queda despejada. El botón abre una ventana de galería dentro del portafolio, con el selector **Filtrar por módulo**, flechas anterior/siguiente, miniaturas, contador y el flujo principal de la aplicación. La opción **Todas las fotos** permite recorrer la aplicación completa. Las imágenes se muestran completas y las miniaturas se cargan según se necesitan.
+Las tarjetas de React Native, Refacciones y App Finanzas Mauricio incluyen el botón permanente **Ver más detalles del proyecto**, con fondo blanco y letras rojas, encima de los enlaces del proyecto. La imagen principal queda despejada. El botón abre una ventana de galería dentro del portafolio, con el selector **Filtrar por módulo**, flechas anterior/siguiente, miniaturas, contador y el flujo principal de la aplicación. La opción **Todas las fotos** permite recorrer la aplicación completa. Las imágenes se muestran completas y las miniaturas se cargan según se necesitan.
 
-La galería sigue una distribución de dos columnas en escritorio: a la izquierda están el filtro por módulo, el contador de fotos y **Ampliar imagen**, seguidos de la foto grande con flechas y las miniaturas; a la derecha aparece **Flujo principal del software**, con seis pasos específicos de la aplicación. En móvil y tablet, los pasos se muestran debajo de las miniaturas. El panel de pasos conserva el flujo completo al cambiar de módulo o de foto.
+La galería sigue una distribución de dos columnas en escritorio: a la izquierda están el filtro por módulo, el contador de fotos y **Ampliar imagen**, seguidos de la foto grande con flechas y las miniaturas; a la derecha aparece **Flujo principal del software**, con la información específica de la aplicación. En móvil y tablet, los pasos se muestran debajo de las miniaturas. El panel de pasos conserva el flujo completo al cambiar de módulo o de foto.
 
 La ventana comienza directamente con los controles, sin una cabecera de título que ocupe espacio. El botón de cierre aparece primero, a la izquierda del filtro por módulo. En escritorio, la ventana deja al menos 48 píxeles por lado y 40 píxeles arriba y abajo para ocupar el área delimitada en la referencia. En móvil se conservan márgenes más pequeños. El visor adapta su proporción a cada imagen para mostrarla completa a lo ancho, sin franjas laterales añadidas ni recortes. Si el contenido supera la altura de la pantalla, puedes desplazarte por la galería para llegar a las miniaturas y los pasos.
 
 El botón **Ampliar imagen**, encima de la foto, permite leer los detalles de las capturas y desplazarse dentro de ellas. **Ajustar imagen** vuelve a mostrar la captura completa. Al cambiar de foto se restablece el encuadre completo.
 
-Los seis pasos se guardan en la propiedad `workflow` del `gallery-data.js` de cada aplicación. El flujo de Refacciones va desde la solicitud y las dos aprobaciones hasta el código de almacén, la cotización y la conclusión. El de React Native comprende prospectos en CRM, cierre de ventas, creación y requisitos de proyectos, seguimiento KANBAN y reportes financieros por periodo.
+El flujo se guarda en la propiedad `workflow` del `gallery-data.js` de cada aplicación. Refacciones y React Native tienen seis pasos cada una: el flujo de Refacciones va desde la solicitud y las dos aprobaciones hasta el código de almacén, la cotización y la conclusión. El de React Native comprende prospectos en CRM, cierre de ventas, creación y requisitos de proyectos, seguimiento KANBAN y reportes financieros por periodo. App Finanzas Mauricio describe su estado en desarrollo y las integraciones en pruebas o previstas.
 
 Para navegar también puedes usar las flechas izquierda/derecha del teclado; Inicio y Fin van a la primera y última foto del filtro. Las flechas del selector conservan su función de elegir un módulo. El botón de cierre, la tecla Escape o un clic fuera de la ventana cierran la galería y devuelven el foco al botón que la abrió.
 
+Para abrir una galería directamente, añade el sufijo correspondiente a la URL pública del portafolio, sustituyendo cualquier fragmento que ya aparezca después de `#`:
+
+| Proyecto | Sufijo del enlace |
+| --- | --- |
+| Aplicación en React Native | `#galeria=react-native` |
+| Réplica Aplicación de Refacciones Clarios | `#galeria=refacciones` |
+| App Finanzas Mauricio | `#galeria=app-finanzas` |
+
+Al cargar ese enlace, la galería del proyecto se abre automáticamente. **Ver más detalles del proyecto** también actualiza la URL al abrirla. Dentro de la galería, **Copiar enlace** copia la dirección del proyecto; si el navegador bloquea el portapapeles, muestra un campo con el enlace seleccionado para copiarlo manualmente. El enlace identifica el proyecto completo, sin guardar el filtro ni la foto actual.
+
+Al cerrar la galería se restaura el fragmento anterior de la URL; si se llegó mediante un enlace directo, se usa `#proyectos`. Los botones Atrás y Adelante del navegador mantienen la galería sincronizada con la dirección.
+
+Una dirección `file://` abre archivos del propio equipo. Para compartir una galería con otras personas, abre la URL publicada del portafolio y usa **Copiar enlace** desde allí.
+
 Los 9 módulos de React Native incluyen inicio de sesión, olvidaste tu contraseña, creación de cuenta y organización, solicitud pendiente, administrador, colaborador, CRM, proyectos y finanzas. **Inicio de sesión** contiene 5 capturas de pruebas en navegador: formulario, credenciales, verificación por código, correo de acceso y sesión iniciada en el dispositivo. **Olvidaste tu contraseña** contiene 9 capturas del flujo de recuperación: correo, código de verificación, nueva contraseña y confirmación tanto en la aplicación como por correo. Los 6 módulos de Refacciones incluyen inicio de sesión, solicitante, gerente de mantenimiento, gerente de planta, almacenista y comprador.
 
-Las 125 fotos de las galerías se guardan en `assets/galleries/react-native/` y `assets/galleries/refacciones/`. Se conservan también las dos capturas anteriores del inicio de sesión de React Native como archivos, aunque ya no aparecen en la galería. Cada carpeta contiene un archivo `gallery-data.js` con los módulos, las rutas, los textos alternativos y las leyendas de sus fotos. Para añadir una foto, guárdala en la carpeta correspondiente y agrega su entrada al módulo adecuado en ese archivo. `gallery.js` controla ambas galerías; los scripts se cargan en `index.html` y funcionan también al abrirlo directamente, sin servidor ni dependencias.
+Las 140 fotos de las galerías se guardan en `assets/galleries/react-native/`, `assets/galleries/refacciones/` y `assets/galleries/app-finanzas/`. Se conservan también las dos capturas anteriores del inicio de sesión de React Native como archivos, aunque ya no aparecen en la galería. Cada carpeta contiene un archivo `gallery-data.js` con los módulos, las rutas, los textos alternativos y las leyendas de sus fotos. Para añadir una foto, guárdala en la carpeta correspondiente y agrega su entrada al módulo adecuado en ese archivo. `gallery.js` controla las tres galerías; los scripts se cargan en `index.html` y funcionan también al abrirlo directamente, sin servidor ni dependencias.
 
 ## Fotos de experiencia laboral
 

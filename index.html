@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="styles.css">
   <script src="assets/galleries/react-native/gallery-data.js" defer></script>
   <script src="assets/galleries/refacciones/gallery-data.js" defer></script>
+  <script src="assets/galleries/app-finanzas/gallery-data.js" defer></script>
   <script src="gallery.js" defer></script>
 </head>
 <body id="inicio">
@@ -157,7 +158,7 @@
     <section class="section projects-section" id="proyectos" aria-labelledby="proyectos-titulo">
       <div class="container">
         <div class="section-heading"><p class="eyebrow section-number">04 / Portafolio</p><h2 id="proyectos-titulo">Proyectos desarrollados</h2></div>
-        <!-- PROYECTOS: Grinsa Manufacturas, Aplicación en React Native y Réplica Aplicación de Refacciones Clarios.
+        <!-- PROYECTOS: Grinsa Manufacturas, Aplicación en React Native, Réplica Aplicación de Refacciones Clarios y App Finanzas Mauricio.
              Duplica un article y asigna un identificador único para añadir otro proyecto. -->
         <div class="project-list" id="lista-proyectos">
           <article class="project-card" aria-labelledby="proyecto-01">
@@ -199,6 +200,19 @@
                 <button class="button button-project-details" type="button" data-gallery-open="refacciones" aria-haspopup="dialog" aria-controls="project-gallery" hidden><svg class="icon" aria-hidden="true"><use href="#photos-icon"/></svg>Ver más detalles del proyecto<span class="sr-only"> de la Aplicación de Refacciones Clarios</span></button>
                 <a class="button button-primary" href="https://apprefacciones.onrender.com/index.html" target="_blank" rel="noopener noreferrer">Ver aplicación web <span class="sr-only">(abre en una pestaña nueva)</span><svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a>
                 <a class="button button-outline" href="https://github.com/mauricioedlg/appRefacciones" target="_blank" rel="noopener noreferrer">Ver repositorio <span class="sr-only">en GitHub (abre en una pestaña nueva)</span><svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a>
+            </div>
+          </article>
+          <article class="project-card" aria-labelledby="proyecto-04">
+            <img class="project-image project-screenshot" src="assets/app-finanzas-mauricio.png" alt="Panel de inicio de App Finanzas Mauricio en el navegador con patrimonio total, gráfica de evolución y distribución de activos en un mercado simulado" width="1365" height="767" loading="lazy" decoding="async">
+            <div class="card-body">
+              <p class="eyebrow project-kind">Aplicación web · En desarrollo</p>
+              <h3 id="proyecto-04">App Finanzas Mauricio</h3>
+              <p class="project-description"><strong>Versión web del proyecto iOS · App de finanzas.</strong> Estoy desarrollando una versión mejorada para el navegador de la aplicación que creé en Swift como proyecto final de mi clase de aplicaciones en iOS. Es una app inspirada en GBM para simular la compra y venta de acciones de la Bolsa Mexicana de Valores.</p>
+              <ul class="tags" aria-label="Tecnologías de App Finanzas Mauricio"><li>React</li><li>Bootstrap</li><li>Django</li><li>PostgreSQL</li><li>Neon</li><li>Resend API</li><li>Stripe API</li></ul>
+            </div>
+            <div class="project-links" role="group" aria-label="Enlaces de App Finanzas Mauricio">
+                <button class="button button-project-details" type="button" data-gallery-open="app-finanzas" aria-haspopup="dialog" aria-controls="project-gallery" hidden><svg class="icon" aria-hidden="true"><use href="#photos-icon"/></svg>Ver más detalles del proyecto<span class="sr-only"> App Finanzas Mauricio</span></button>
+                <a class="button button-outline" href="https://github.com/mauricioedlg/replicaAppFinanzas" target="_blank" rel="noopener noreferrer">Ver repositorio <span class="sr-only">en GitHub (abre en una pestaña nueva)</span><svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a>
             </div>
           </article>
         </div>
@@ -263,6 +277,11 @@
           </div>
           <div class="gallery-caption">
             <div class="gallery-caption-copy"><p class="eyebrow" id="gallery-current-module"></p><p id="gallery-current-caption"></p></div>
+            <button class="button button-outline gallery-share" type="button" data-gallery-share>Copiar enlace</button>
+          </div>
+          <div class="gallery-share-feedback" hidden>
+            <p id="gallery-share-status" role="status" aria-live="polite"></p>
+            <input type="text" id="gallery-share-url" aria-label="Enlace directo a esta galería" readonly hidden>
           </div>
           <div class="gallery-thumbnails" id="gallery-thumbnails" role="group" aria-label="Seleccionar una foto"></div>
         </div>
