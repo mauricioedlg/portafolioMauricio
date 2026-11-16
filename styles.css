@@ -17,7 +17,6 @@
 *, *::before, *::after { box-sizing: border-box; }
 [hidden] { display: none !important; }
 html { scroll-behavior: smooth; }
-html.gallery-open { overflow: hidden; }
 body { margin: 0; color: var(--ink); background: var(--paper); font: 1rem/1.65 var(--sans); }
 figure, p, h1, h2, h3, h4, ol, ul, dl, dd { margin: 0; }
 a { color: inherit; }
@@ -140,17 +139,25 @@ h4 { font-size: 1rem; font-weight: 700; }
 .case-copy p + p { margin-top: .65rem; }
 .case-copy strong { color: var(--ink); }
 
-.gallery-dialog { width: min(90rem, calc(100% - 6rem)); max-width: none; max-height: calc(100% - 5rem); padding: 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--dark); color: var(--ink); box-shadow: 0 1.5rem 5rem #16020780; overflow: hidden; }
-.gallery-dialog::backdrop { background: #160207d9; backdrop-filter: blur(5px); }
-.gallery-panel { display: flex; max-height: calc(100dvh - 5rem - 2px); min-height: 0; flex-direction: column; overflow-y: auto; overscroll-behavior: contain; }
-.gallery-layout { display: grid; flex: none; min-height: 0; grid-template-columns: minmax(0, 1fr); align-items: start; gap: 1rem; padding: .5rem 1.25rem 1.25rem; }
-.gallery-layout.has-workflow { grid-template-columns: minmax(0, 2.15fr) minmax(18rem, 1fr); }
+.project-intro { padding-block: clamp(2rem, 5vw, 4rem) 2.5rem; }
+.project-back { display: inline-flex; min-height: 2.75rem; align-items: center; gap: .5rem; margin-bottom: 1.5rem; color: var(--muted); font-size: .9rem; font-weight: 650; text-underline-offset: .25em; }
+.project-intro h1 { max-width: 60rem; font-size: clamp(2.25rem, 5vw, 4rem); line-height: 1.12; letter-spacing: -.055em; overflow-wrap: anywhere; }
+.project-summary { max-width: 54rem; margin-block: 1.25rem; color: var(--muted); font-size: 1.05rem; }
+.project-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
+.project-gallery-section { padding-bottom: clamp(3rem, 6vw, 5rem); }
+.project-gallery-section .section-heading { margin-bottom: 1.25rem; }
+.project-gallery-section .eyebrow.section-number { margin-bottom: .5rem; }
+.project-gallery-section h2 { font-size: clamp(1.75rem, 3vw, 2.5rem); }
+.project-gallery { min-width: 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--dark); color: var(--ink); box-shadow: 0 1.5rem 5rem #16020740; }
+.gallery-panel { display: flex; min-width: 0; flex-direction: column; }
+.gallery-layout { display: grid; min-width: 0; grid-template-columns: minmax(0, 1fr); align-items: start; gap: 1rem; padding: 1.25rem; }
+.gallery-layout.has-workflow { grid-template-columns: minmax(0, 2.15fr) minmax(16rem, 1fr); }
 .gallery-media { display: flex; min-width: 0; min-height: 0; flex-direction: column; }
 .gallery-icon-button { display: inline-flex; width: 2.875rem; height: 2.875rem; flex: none; align-items: center; justify-content: center; padding: 0; border: 1px solid var(--line); border-radius: .65rem; background: var(--surface); color: var(--ink); cursor: pointer; }
 .gallery-icon-button:hover { background: var(--soft); }
 .gallery-icon-button:disabled { opacity: .35; cursor: default; }
 .gallery-icon-button .icon { width: 1.35rem; height: 1.35rem; }
-.gallery-toolbar { display: grid; flex: none; grid-template-columns: auto minmax(0, 1fr) auto auto; align-items: end; gap: .75rem; padding-bottom: .5rem; }
+.gallery-toolbar { display: grid; flex: none; grid-template-columns: minmax(0, 1fr) auto auto; align-items: end; gap: .75rem; padding-bottom: .75rem; }
 .gallery-filter { display: grid; min-width: 0; gap: .35rem; }
 .gallery-filter label { color: var(--muted); font-size: .8rem; font-weight: 650; }
 .gallery-filter select { width: 100%; min-width: 0; min-height: 2.75rem; padding: .6rem 2rem .6rem .75rem; border: 1px solid var(--line); border-radius: .55rem; background: var(--surface); color: var(--ink); font: inherit; font-size: .875rem; text-overflow: ellipsis; cursor: pointer; }
@@ -180,7 +187,7 @@ h4 { font-size: 1rem; font-weight: 700; }
 .gallery-thumbnail img { width: 100%; height: 100%; object-fit: contain; }
 .gallery-thumbnail:hover { border-color: var(--line); }
 .gallery-thumbnail[aria-current="true"] { border-color: var(--ink); background: var(--soft); }
-.gallery-workflow { min-width: 0; min-height: 0; align-self: stretch; padding: 1.25rem; border: 1px solid var(--line); border-radius: .8rem; background: var(--surface); overflow-y: auto; overscroll-behavior-y: contain; scrollbar-width: thin; scrollbar-color: var(--line) var(--surface); }
+.gallery-workflow { min-width: 0; padding: 1.25rem; border: 1px solid var(--line); border-radius: .8rem; background: var(--surface); }
 .gallery-workflow h3 { padding-bottom: 1rem; border-bottom: 1px solid var(--line); font-size: .95rem; line-height: 1.4; letter-spacing: .025em; text-transform: uppercase; }
 .gallery-workflow-steps { display: grid; gap: 1rem; margin-top: 1.25rem; padding: 0; list-style: none; counter-reset: gallery-step; }
 .gallery-workflow-steps li { position: relative; min-height: 2rem; padding-left: 2.75rem; color: var(--muted); font-size: .9rem; line-height: 1.65; counter-increment: gallery-step; overflow-wrap: anywhere; }
@@ -189,16 +196,12 @@ h4 { font-size: 1rem; font-weight: 700; }
 @media (max-width: 64rem) {
   .gallery-layout.has-workflow { grid-template-columns: minmax(0, 1fr); }
   .gallery-media { min-height: 0; }
-  .gallery-workflow { overflow-y: visible; }
 }
 
 @media (max-width: 40rem) {
-  .gallery-dialog { width: calc(100% - 1rem); max-height: calc(100% - 1rem); border-radius: .85rem; }
-  .gallery-panel { max-height: calc(100dvh - 1rem - 2px); }
   .gallery-layout { gap: 1rem; padding: .85rem; }
-  .gallery-toolbar { grid-template-columns: auto minmax(0, 1fr); gap: .65rem; padding-bottom: .75rem; }
-  .gallery-filter { grid-column: 2; grid-row: 1; }
-  .gallery-close { grid-column: 1; grid-row: 1; justify-self: start; }
+  .gallery-toolbar { grid-template-columns: minmax(0, 1fr) auto; gap: .65rem; padding-bottom: .75rem; }
+  .gallery-filter { grid-column: 1 / -1; grid-row: 1; }
   .gallery-zoom { grid-column: 2; grid-row: 2; }
   .gallery-position { align-self: center; padding-bottom: 0; font-size: .75rem; }
   .gallery-previous, .gallery-next { width: 2.75rem; height: 2.75rem; }

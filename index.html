@@ -8,9 +8,6 @@
   <title>Mauricio Estrada de la Garza | Portafolio de desarrollo web</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='10' fill='%23480e1a'/%3E%3Ctext x='24' y='30' text-anchor='middle' fill='%23ffffff' font-family='monospace' font-size='18' font-weight='bold'%3EME%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="styles.css">
-  <script src="assets/galleries/react-native/gallery-data.js" defer></script>
-  <script src="assets/galleries/refacciones/gallery-data.js" defer></script>
-  <script src="assets/galleries/app-finanzas/gallery-data.js" defer></script>
   <script src="gallery.js" defer></script>
 </head>
 <body id="inicio">
@@ -183,7 +180,7 @@
               <ul class="tags" aria-label="Tecnologías de la aplicación en React Native"><li>React Native</li><li>CSS</li><li>Django</li><li>PostgreSQL</li><li>Neon</li><li>Docker</li><li>Render</li></ul>
             </div>
             <div class="project-links" role="group" aria-label="Enlaces de la aplicación en React Native">
-                <button class="button button-project-details" type="button" data-gallery-open="react-native" aria-haspopup="dialog" aria-controls="project-gallery" hidden><svg class="icon" aria-hidden="true"><use href="#photos-icon"/></svg>Ver más detalles del proyecto<span class="sr-only"> de la aplicación en React Native</span></button>
+                <a class="button button-project-details" href="proyecto-react-native.html"><svg class="icon" aria-hidden="true"><use href="#photos-icon"/></svg>Ver más detalles del proyecto<span class="sr-only"> de la aplicación en React Native</span></a>
                 <a class="button button-primary" href="https://aplicacionreactnative.onrender.com/login" target="_blank" rel="noopener noreferrer">Versión web <span class="sr-only">(abre en una pestaña nueva)</span><svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a>
                 <a class="button button-outline" href="https://github.com/mauricioedlg/aplicacionReactNative/tree/v1" target="_blank" rel="noopener noreferrer">Ver repositorio <span class="sr-only">en GitHub (abre en una pestaña nueva)</span><svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a>
             </div>
@@ -197,7 +194,7 @@
               <ul class="tags" aria-label="Tecnologías de la réplica de la Aplicación de Refacciones Clarios"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Django</li><li>SQL Server</li><li>PostgreSQL</li><li>Neon</li><li>Render</li></ul>
             </div>
             <div class="project-links" role="group" aria-label="Enlaces de la réplica de la Aplicación de Refacciones Clarios">
-                <button class="button button-project-details" type="button" data-gallery-open="refacciones" aria-haspopup="dialog" aria-controls="project-gallery" hidden><svg class="icon" aria-hidden="true"><use href="#photos-icon"/></svg>Ver más detalles del proyecto<span class="sr-only"> de la Aplicación de Refacciones Clarios</span></button>
+                <a class="button button-project-details" href="proyecto-refacciones.html"><svg class="icon" aria-hidden="true"><use href="#photos-icon"/></svg>Ver más detalles del proyecto<span class="sr-only"> de la Aplicación de Refacciones Clarios</span></a>
                 <a class="button button-primary" href="https://apprefacciones.onrender.com/index.html" target="_blank" rel="noopener noreferrer">Ver aplicación web <span class="sr-only">(abre en una pestaña nueva)</span><svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a>
                 <a class="button button-outline" href="https://github.com/mauricioedlg/appRefacciones" target="_blank" rel="noopener noreferrer">Ver repositorio <span class="sr-only">en GitHub (abre en una pestaña nueva)</span><svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a>
             </div>
@@ -211,7 +208,7 @@
               <ul class="tags" aria-label="Tecnologías de App Finanzas Mauricio"><li>React</li><li>Bootstrap</li><li>Django</li><li>PostgreSQL</li><li>Neon</li><li>Resend API</li><li>Stripe API</li></ul>
             </div>
             <div class="project-links" role="group" aria-label="Enlaces de App Finanzas Mauricio">
-                <button class="button button-project-details" type="button" data-gallery-open="app-finanzas" aria-haspopup="dialog" aria-controls="project-gallery" hidden><svg class="icon" aria-hidden="true"><use href="#photos-icon"/></svg>Ver más detalles del proyecto<span class="sr-only"> App Finanzas Mauricio</span></button>
+                <a class="button button-project-details" href="proyecto-app-finanzas.html"><svg class="icon" aria-hidden="true"><use href="#photos-icon"/></svg>Ver más detalles del proyecto<span class="sr-only"> App Finanzas Mauricio</span></a>
                 <a class="button button-outline" href="https://github.com/mauricioedlg/replicaAppFinanzas" target="_blank" rel="noopener noreferrer">Ver repositorio <span class="sr-only">en GitHub (abre en una pestaña nueva)</span><svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a>
             </div>
           </article>
@@ -254,44 +251,6 @@
       </div>
     </section>
   </main>
-  <dialog class="gallery-dialog" id="project-gallery" aria-labelledby="gallery-title" aria-describedby="gallery-help">
-    <div class="gallery-panel">
-      <h2 class="sr-only" id="gallery-title">Fotos de la aplicación</h2>
-      <p class="sr-only" id="gallery-help">Selecciona un módulo para filtrar las fotos. Usa los botones o las flechas izquierda y derecha del teclado para navegar. Presiona Escape o Cerrar galería para volver al portafolio.</p>
-      <div class="gallery-layout">
-        <div class="gallery-media">
-          <div class="gallery-toolbar">
-            <button class="gallery-icon-button gallery-close" type="button" data-gallery-close aria-label="Cerrar galería" autofocus><svg class="icon" aria-hidden="true"><use href="#close-icon"/></svg></button>
-            <div class="gallery-filter"><label for="gallery-module">Filtrar por módulo</label><select id="gallery-module"><option value="all">Todas las fotos</option></select></div>
-            <p class="gallery-position" id="gallery-position" role="status" aria-live="polite" aria-atomic="true"></p>
-            <button class="button button-outline gallery-zoom" type="button" data-gallery-zoom aria-pressed="false" aria-controls="gallery-image">Ampliar imagen</button>
-          </div>
-          <div class="gallery-viewer">
-            <button class="gallery-icon-button gallery-previous" type="button" data-gallery-previous aria-label="Ver foto anterior"><svg class="icon" aria-hidden="true"><use href="#arrow-left"/></svg></button>
-            <figure class="gallery-figure">
-              <img class="gallery-image" id="gallery-image" alt="" decoding="async" draggable="false">
-              <figcaption class="sr-only" id="gallery-image-description"></figcaption>
-            </figure>
-            <p class="gallery-image-status" id="gallery-image-status" role="status" hidden></p>
-            <button class="gallery-icon-button gallery-next" type="button" data-gallery-next aria-label="Ver foto siguiente"><svg class="icon" aria-hidden="true"><use href="#arrow-right"/></svg></button>
-          </div>
-          <div class="gallery-caption">
-            <div class="gallery-caption-copy"><p class="eyebrow" id="gallery-current-module"></p><p id="gallery-current-caption"></p></div>
-            <button class="button button-outline gallery-share" type="button" data-gallery-share>Copiar enlace</button>
-          </div>
-          <div class="gallery-share-feedback" hidden>
-            <p id="gallery-share-status" role="status" aria-live="polite"></p>
-            <input type="text" id="gallery-share-url" aria-label="Enlace directo a esta galería" readonly hidden>
-          </div>
-          <div class="gallery-thumbnails" id="gallery-thumbnails" role="group" aria-label="Seleccionar una foto"></div>
-        </div>
-        <aside class="gallery-workflow" aria-labelledby="gallery-workflow-title" tabindex="0" hidden>
-          <h3 id="gallery-workflow-title">Flujo principal del software</h3>
-          <ol class="gallery-workflow-steps" id="gallery-workflow-steps" role="list"></ol>
-        </aside>
-      </div>
-    </div>
-  </dialog>
   <footer class="site-footer">
     <div class="container footer-inner"><p>Mauricio Estrada de la Garza <span>· Monterrey, N.L.</span></p><a href="#inicio">Volver arriba <svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a></div>
   </footer>
