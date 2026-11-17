@@ -3,11 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="App Finanzas Mauricio: detalles, tecnologías, capturas y funcionamiento del proyecto de Mauricio Estrada de la Garza.">
+  <meta name="description" data-i18n-content="projects.finance.meta" content="App Finanzas Mauricio: detalles, tecnologías, capturas y funcionamiento del proyecto de Mauricio Estrada de la Garza.">
   <meta name="theme-color" content="#781627">
-  <title>App Finanzas Mauricio | Mauricio Estrada</title>
+  <title data-i18n="projects.finance.title">App Finanzas Mauricio | Mauricio Estrada</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='10' fill='%23480e1a'/%3E%3Ctext x='24' y='30' text-anchor='middle' fill='%23ffffff' font-family='monospace' font-size='18' font-weight='bold'%3EME%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="styles.css">
+  <script src="i18n.js" defer></script>
   <script src="assets/galleries/app-finanzas/gallery-data.js" defer></script>
   <script src="gallery.js" defer></script>
 </head>
@@ -28,65 +29,69 @@
     <symbol id="language-icon" viewBox="0 0 24 24"><path d="M3 5h12M9 3v2m4 0c-1 6-4 9-9 11m1-8c1 3 3 5 6 7m2 6 4-11 4 11m-6.5-4h5"/></symbol>
   </svg>
 
-  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <a class="skip-link" href="#contenido" data-i18n="common.skip">Saltar al contenido</a>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="wordmark" href="index.html#inicio" aria-label="Mauricio Estrada, inicio"><span class="monogram" aria-hidden="true">ME</span><span>Mauricio Estrada</span></a>
-      <nav class="site-nav" aria-label="Navegación principal">
-        <a href="index.html#inicio">Inicio</a>
-        <a href="index.html#educacion">Educación</a>
-        <a href="index.html#experiencia">Experiencia</a>
-        <a href="index.html#proyectos">Proyectos</a>
-        <a href="index.html#competencias">Competencias</a>
+      <a class="wordmark" href="index.html#inicio" aria-label="Mauricio Estrada, inicio" data-i18n-aria-label="common.brandHome"><span class="monogram" aria-hidden="true">ME</span><span>Mauricio Estrada</span></a>
+      <nav class="site-nav" aria-label="Navegación principal" data-i18n-aria-label="common.nav.label">
+        <a href="index.html#inicio" data-i18n="common.nav.home">Inicio</a>
+        <a href="index.html#educacion" data-i18n="common.nav.education">Educación</a>
+        <a href="index.html#experiencia" data-i18n="common.nav.experience">Experiencia</a>
+        <a href="index.html#proyectos" data-i18n="common.nav.projects">Proyectos</a>
+        <a href="index.html#competencias" data-i18n="common.nav.skills">Competencias</a>
+      </nav>
+      <nav class="language-switch" aria-label="Idioma" data-i18n-aria-label="common.languageLabel">
+        <a href="?lang=es" lang="es" hreflang="es" data-language="es">Español</a>
+        <a href="?lang=en" lang="en" hreflang="en" data-language="en">English</a>
       </nav>
     </div>
   </header>
 
   <main id="contenido" tabindex="-1">
     <section class="container project-intro" aria-labelledby="project-title">
-      <a class="project-back" href="index.html#proyectos"><svg class="icon" aria-hidden="true"><use href="#arrow-left"/></svg>Volver a proyectos</a>
-      <p class="eyebrow project-kind">Aplicación web · En desarrollo</p>
-      <h1 id="project-title">App Finanzas Mauricio</h1>
-      <p class="project-summary"><strong>Versión web del proyecto iOS · App de finanzas.</strong> Estoy desarrollando una versión mejorada para el navegador de la aplicación que creé en Swift como proyecto final de mi clase de aplicaciones en iOS. Es una app inspirada en GBM para simular la compra y venta de acciones de la Bolsa Mexicana de Valores.</p>
-      <ul class="tags" aria-label="Tecnologías de App Finanzas Mauricio"><li>React</li><li>Bootstrap</li><li>Django</li><li>PostgreSQL</li><li>Neon</li><li>Resend API</li><li>Stripe API</li></ul>
-      <div class="project-actions" role="group" aria-label="Enlaces del proyecto">
-        <a class="button button-outline" href="https://github.com/mauricioedlg/replicaAppFinanzas" target="_blank" rel="noopener noreferrer">Ver repositorio <span class="sr-only">en GitHub (abre en una pestaña nueva)</span><svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a>
+      <a class="project-back" href="index.html#proyectos"><svg class="icon" aria-hidden="true"><use href="#arrow-left"/></svg><span data-i18n="common.backProjects">Volver a proyectos</span></a>
+      <p class="eyebrow project-kind" data-i18n="projects.finance.kind">Aplicación web · En desarrollo</p>
+      <h1 id="project-title" data-i18n="projects.finance.heading">App Finanzas Mauricio</h1>
+      <p class="project-summary"><strong data-i18n="projects.finance.summaryLead">Versión web del proyecto iOS · App de finanzas.</strong> <span data-i18n="projects.finance.summary">Estoy desarrollando una versión mejorada para el navegador de la aplicación que creé en Swift como proyecto final de mi clase de aplicaciones en iOS. Es una app inspirada en GBM para simular la compra y venta de acciones de la Bolsa Mexicana de Valores.</span></p>
+      <ul class="tags" data-i18n-aria-label="projects.finance.technologies" aria-label="Tecnologías de App Finanzas Mauricio"><li>React</li><li>Bootstrap</li><li>Django</li><li>PostgreSQL</li><li>Neon</li><li>Resend API</li><li>Stripe API</li></ul>
+      <div class="project-actions" role="group" aria-label="Enlaces del proyecto" data-i18n-aria-label="common.projectLinks">
+        <a class="button button-outline" href="https://github.com/mauricioedlg/replicaAppFinanzas" target="_blank" rel="noopener noreferrer"><span data-i18n="common.viewRepository">Ver repositorio</span> <span class="sr-only" data-i18n="common.githubNewTab">en GitHub (abre en una pestaña nueva)</span><svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a>
       </div>
     </section>
 
     <section class="container project-gallery-section" aria-labelledby="gallery-title">
-      <div class="section-heading"><p class="eyebrow section-number">Capturas y funcionamiento</p><h2 id="gallery-title">Galería del proyecto</h2></div>
+      <div class="section-heading"><p class="eyebrow section-number" data-i18n="gallery.eyebrow">Capturas y funcionamiento</p><h2 id="gallery-title" data-i18n="gallery.heading">Galería del proyecto</h2></div>
       <div class="project-gallery" id="project-gallery" data-gallery="app-finanzas" role="region" aria-labelledby="gallery-title" aria-describedby="gallery-help">
         <div class="gallery-panel">
-          <p class="sr-only" id="gallery-help">Selecciona un módulo para filtrar las fotos. Enfoca el visor o una miniatura y usa las flechas izquierda y derecha para navegar; Inicio y Fin seleccionan la primera y la última foto.</p>
+          <p class="sr-only" id="gallery-help" data-i18n="gallery.help">Selecciona un módulo para filtrar las fotos. Enfoca el visor o una miniatura y usa las flechas izquierda y derecha para navegar; Inicio y Fin seleccionan la primera y la última foto.</p>
           <div class="gallery-layout has-workflow">
             <div class="gallery-media">
               <div class="gallery-toolbar">
-                <div class="gallery-filter"><label for="gallery-module">Filtrar por módulo</label><select id="gallery-module" disabled><option value="all">Todas las fotos (15)</option></select></div>
+                <div class="gallery-filter"><label for="gallery-module" data-i18n="gallery.filter">Filtrar por módulo</label><select id="gallery-module" disabled><option value="all">Todas las fotos (15)</option></select></div>
                 <p class="gallery-position" id="gallery-position" role="status" aria-live="polite" aria-atomic="true">Foto 1 de 15</p>
-                <button class="button button-outline gallery-zoom" type="button" data-gallery-zoom disabled aria-pressed="false" aria-controls="gallery-image">Ampliar imagen</button>
+                <button class="button button-outline gallery-zoom" type="button" data-gallery-zoom data-i18n="gallery.zoomIn" disabled aria-pressed="false" aria-controls="gallery-image">Ampliar imagen</button>
               </div>
-              <div class="gallery-viewer" tabindex="0" role="group" aria-label="Visor de capturas del proyecto" style="--gallery-image-ratio: 1365 / 767">
-                <button class="gallery-icon-button gallery-previous" type="button" data-gallery-previous disabled aria-label="Ver foto anterior"><svg class="icon" aria-hidden="true"><use href="#arrow-left"/></svg></button>
+              <div class="gallery-viewer" tabindex="0" role="group" aria-label="Visor de capturas del proyecto" data-i18n-aria-label="gallery.viewer" style="--gallery-image-ratio: 1365 / 767">
+                <button class="gallery-icon-button gallery-previous" type="button" data-gallery-previous disabled aria-label="Ver foto anterior" data-i18n-aria-label="gallery.previous"><svg class="icon" aria-hidden="true"><use href="#arrow-left"/></svg></button>
                 <figure class="gallery-figure">
                   <img class="gallery-image" id="gallery-image" src="assets/galleries/app-finanzas/web-inicio.webp" alt="Panel principal de App Finanzas Mauricio en el navegador con el indicador Mercado simulado, patrimonio total, gráfica y distribución de activos." width="1365" height="767" decoding="async" draggable="false">
                   <figcaption class="sr-only" id="gallery-image-description">Fotos versión web del proyecto: Versión web: panel principal con mercado simulado</figcaption>
                 </figure>
                 <p class="gallery-image-status" id="gallery-image-status" role="status" hidden></p>
-                <button class="gallery-icon-button gallery-next" type="button" data-gallery-next disabled aria-label="Ver foto siguiente"><svg class="icon" aria-hidden="true"><use href="#arrow-right"/></svg></button>
+                <button class="gallery-icon-button gallery-next" type="button" data-gallery-next disabled aria-label="Ver foto siguiente" data-i18n-aria-label="gallery.next"><svg class="icon" aria-hidden="true"><use href="#arrow-right"/></svg></button>
               </div>
               <div class="gallery-caption">
                 <div class="gallery-caption-copy"><p class="eyebrow" id="gallery-current-module">Fotos versión web del proyecto</p><p id="gallery-current-caption">Versión web: panel principal con mercado simulado</p></div>
-                <button class="button button-outline gallery-share" type="button" data-gallery-share disabled>Copiar enlace</button>
+                <button class="button button-outline gallery-share" type="button" data-gallery-share data-i18n="gallery.shareCopy" disabled>Copiar enlace</button>
               </div>
               <div class="gallery-share-feedback" hidden>
                 <p id="gallery-share-status" role="status" aria-live="polite"></p>
-                <input type="text" id="gallery-share-url" aria-label="Enlace directo a este proyecto" readonly hidden>
+                <input type="text" id="gallery-share-url" aria-label="Enlace directo a este proyecto" data-i18n-aria-label="gallery.directLink" readonly hidden>
               </div>
-              <div class="gallery-thumbnails" id="gallery-thumbnails" role="group" aria-label="Seleccionar una foto"></div>
+              <div class="gallery-thumbnails" id="gallery-thumbnails" role="group" aria-label="Seleccionar una foto" data-i18n-aria-label="gallery.selectPhoto"></div>
             </div>
             <aside class="gallery-workflow" aria-labelledby="gallery-workflow-title">
-              <h3 id="gallery-workflow-title">Flujo principal del software</h3>
+              <h3 id="gallery-workflow-title" data-i18n="gallery.workflowTitle">Flujo principal del software</h3>
               <ol class="gallery-workflow-steps" id="gallery-workflow-steps" role="list">
                 <li>Estoy desarrollando una versión mejorada para el navegador de la app de finanzas que desarrollé en Swift como proyecto final de mi clase de aplicaciones en iOS.</li>
                 <li>Se están realizando pruebas para integrar pagos con tarjeta mediante Stripe API en un entorno Sandbox. El proyecto sigue en desarrollo.</li>
@@ -96,18 +101,18 @@
           </div>
         </div>
       </div>
-      <noscript><p>Activa JavaScript para filtrar las fotos y recorrer la galería completa.</p></noscript>
+      <noscript><p data-i18n="gallery.noscript">Activa JavaScript para filtrar las fotos y recorrer la galería completa.</p></noscript>
     </section>
 
     <section class="container contact-section" id="contacto" aria-labelledby="contacto-titulo">
       <div class="contact-panel">
-        <div><p class="eyebrow">Contacto</p><h2 id="contacto-titulo">¿Hablamos?</h2><p>Si mi perfil encaja con tu equipo o tienes un proyecto en mente, puedes escribirme.</p></div>
+        <div><p class="eyebrow" data-i18n="common.contact.eyebrow">Contacto</p><h2 id="contacto-titulo" data-i18n="common.contact.title">¿Hablamos?</h2><p data-i18n="common.contact.description">Si mi perfil encaja con tu equipo o tienes un proyecto en mente, puedes escribirme.</p></div>
         <a class="button button-contact" href="mailto:mauricioestrada580@gmail.com"><svg class="icon" aria-hidden="true"><use href="#mail-icon"/></svg><span>mauricioestrada580<wbr>@gmail.com</span></a>
       </div>
     </section>
   </main>
   <footer class="site-footer">
-    <div class="container footer-inner"><p>Mauricio Estrada de la Garza <span>· Monterrey, N.L.</span></p><a href="#inicio">Volver arriba <svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a></div>
+    <div class="container footer-inner"><p>Mauricio Estrada de la Garza <span>· Monterrey, N.L.</span></p><a href="#inicio"><span data-i18n="common.backTop">Volver arriba</span> <svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a></div>
   </footer>
 </body>
 </html>

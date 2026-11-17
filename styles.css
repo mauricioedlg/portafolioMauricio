@@ -48,6 +48,11 @@ h4 { font-size: 1rem; font-weight: 700; }
 .site-nav { display: flex; flex-wrap: wrap; align-items: center; gap: .2rem clamp(.7rem, 1.65vw, 1.5rem); }
 .site-nav a { display: inline-flex; align-items: center; min-height: 2.75rem; font-size: .825rem; font-weight: 650; text-decoration: none; }
 .site-nav a:hover, .site-footer a:hover { text-decoration: underline; text-underline-offset: .25em; }
+.language-switch { display: inline-flex; flex: none; align-items: center; gap: .15rem; padding: .2rem; border: 1px solid var(--line); border-radius: .65rem; background: var(--dark); }
+.language-switch a { display: inline-flex; min-height: 2.5rem; align-items: center; justify-content: center; padding: .4rem .65rem; border-radius: .4rem; font-size: .8rem; font-weight: 650; text-decoration: none; }
+.language-switch a:hover { background: var(--surface); }
+.language-switch a[aria-current="true"] { background: var(--action); color: var(--ink); }
+.language-status { flex-basis: 100%; color: var(--muted); font-size: .8rem; }
 
 .hero { padding-block: clamp(2.5rem, 5vw, 4rem); border-bottom: 1px solid var(--line); background: var(--dark); }
 .hero-content { display: flex; min-width: 0; flex-direction: column; align-items: center; text-align: center; }
@@ -255,6 +260,10 @@ h4 { font-size: 1rem; font-weight: 700; }
 
 @media (max-width: 48rem) {
   .container { width: calc(100% - 2.5rem); }
+  .header-inner { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: .4rem .5rem; }
+  .site-nav { grid-column: 1 / -1; grid-row: 2; }
+  .language-switch { grid-column: 2; grid-row: 1; }
+  .language-status { grid-column: 1 / -1; }
   .certificate-card { flex-basis: calc((100% - 1.25rem) / 2); }
   h1 { max-width: 36rem; font-size: clamp(3rem, 9.4vw, 4.5rem); }
   .education-grid { gap: 2rem; }
@@ -265,7 +274,8 @@ h4 { font-size: 1rem; font-weight: 700; }
 
 @media (max-width: 35rem) {
   .container { width: calc(100% - 2rem); }
-  .header-inner { align-items: flex-start; flex-direction: column; gap: .4rem; }
+  .wordmark { gap: .5rem; font-size: .8rem; }
+  .language-switch a { padding-inline: .5rem; font-size: .75rem; }
   .site-nav { column-gap: 1.15rem; }
   .site-nav a { font-size: .8rem; }
   .hero { padding-block: 2rem 2.5rem; }

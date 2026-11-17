@@ -3,11 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Portafolio de Mauricio Estrada de la Garza: desarrollo web, formación, experiencia profesional y competencias en desarrollo de software en Monterrey.">
+  <meta name="description" content="Portafolio de Mauricio Estrada de la Garza: desarrollo web, formación, experiencia profesional y competencias en desarrollo de software en Monterrey." data-i18n-content="home.meta.description">
   <meta name="theme-color" content="#781627">
-  <title>Mauricio Estrada de la Garza | Portafolio de desarrollo web</title>
+  <title data-i18n="home.meta.title">Mauricio Estrada de la Garza | Portafolio de desarrollo web</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='10' fill='%23480e1a'/%3E%3Ctext x='24' y='30' text-anchor='middle' fill='%23ffffff' font-family='monospace' font-size='18' font-weight='bold'%3EME%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="styles.css">
+  <script src="i18n.js" defer></script>
   <script src="gallery.js" defer></script>
 </head>
 <body>
@@ -29,38 +30,39 @@
     <symbol id="language-icon" viewBox="0 0 24 24"><path d="M3 5h12M9 3v2m4 0c-1 6-4 9-9 11m1-8c1 3 3 5 6 7m2 6 4-11 4 11m-6.5-4h5"/></symbol>
   </svg>
 
-  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <a class="skip-link" href="#contenido"><span data-i18n="common.skip">Saltar al contenido</span></a>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="wordmark" href="#inicio" aria-label="Mauricio Estrada, inicio"><span class="monogram" aria-hidden="true">ME</span><span>Mauricio Estrada</span></a>
-      <nav class="site-nav" aria-label="Navegación principal">
-        <a href="#inicio">Inicio</a>
-        <a href="#educacion">Educación</a>
-        <a href="#experiencia">Experiencia</a>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#competencias">Competencias</a>
+      <a class="wordmark" href="#inicio" aria-label="Mauricio Estrada, inicio" data-i18n-aria-label="common.brandHome"><span class="monogram" aria-hidden="true">ME</span><span>Mauricio Estrada</span></a>
+      <nav class="site-nav" aria-label="Navegación principal" data-i18n-aria-label="common.nav.label">
+        <a href="#inicio"><span data-i18n="common.nav.home">Inicio</span></a>
+        <a href="#educacion"><span data-i18n="common.nav.education">Educación</span></a>
+        <a href="#experiencia"><span data-i18n="common.nav.experience">Experiencia</span></a>
+        <a href="#proyectos"><span data-i18n="common.nav.projects">Proyectos</span></a>
+        <a href="#competencias"><span data-i18n="common.nav.skills">Competencias</span></a>
       </nav>
+      <nav class="language-switch" aria-label="Idioma" data-i18n-aria-label="common.languageLabel"><a href="?lang=es" lang="es" hreflang="es" data-language="es">Español</a><a href="?lang=en" lang="en" hreflang="en" data-language="en">English</a></nav>
     </div>
   </header>
 
   <main id="contenido" tabindex="-1">
     <section class="hero" id="inicio" aria-labelledby="nombre">
       <div class="container hero-content">
-        <img class="hero-portrait" src="assets/perfil-mauricio.jpeg" alt="Foto de perfil de Mauricio Estrada de la Garza" width="1200" height="1600" fetchpriority="high" decoding="async">
+        <img class="hero-portrait" src="assets/perfil-mauricio.jpeg" alt="Foto de perfil de Mauricio Estrada de la Garza" data-i18n-alt="home.portrait.alt" width="1200" height="1600" fetchpriority="high" decoding="async">
         <h1 id="nombre">Mauricio Estrada de la Garza</h1>
-        <p class="hero-role">Ingeniería en Desarrollo de Software <span aria-hidden="true">·</span> Desarrollo Fullstack</p>
-        <ul class="hero-contact-list" aria-label="Datos de contacto">
-          <li><a href="tel:+528126228609"><svg class="icon" aria-hidden="true"><use href="#phone-icon"/></svg><span><span class="sr-only">Teléfono: </span>+52 81 2622 8609</span></a></li>
-          <li><a href="mailto:mauricioestrada580@gmail.com"><svg class="icon" aria-hidden="true"><use href="#mail-icon"/></svg><span><span class="sr-only">Correo: </span>mauricioestrada580<wbr>@gmail.com</span></a></li>
-          <li><span class="hero-contact-item"><svg class="icon" aria-hidden="true"><use href="#location-icon"/></svg><span><span class="sr-only">Ubicación: </span>San Pedro Garza García, Nuevo León, MX</span></span></li>
+        <p class="hero-role"><span data-i18n="home.degree">Ingeniería en Desarrollo de Software</span> <span aria-hidden="true">·</span> <span data-i18n="home.role">Desarrollo Fullstack</span></p>
+        <ul class="hero-contact-list" aria-label="Datos de contacto" data-i18n-aria-label="home.contact.label">
+          <li><a href="tel:+528126228609"><svg class="icon" aria-hidden="true"><use href="#phone-icon"/></svg><span><span class="sr-only"><span data-i18n="home.contact.phone">Teléfono:</span> </span>+52 81 2622 8609</span></a></li>
+          <li><a href="mailto:mauricioestrada580@gmail.com"><svg class="icon" aria-hidden="true"><use href="#mail-icon"/></svg><span><span class="sr-only"><span data-i18n="home.contact.email">Correo:</span> </span>mauricioestrada580<wbr>@gmail.com</span></a></li>
+          <li><span class="hero-contact-item"><svg class="icon" aria-hidden="true"><use href="#location-icon"/></svg><span><span class="sr-only"><span data-i18n="home.contact.location">Ubicación:</span> </span>San Pedro Garza García, Nuevo León, MX</span></span></li>
         </ul>
-        <ul class="hero-social-links" aria-label="Perfiles profesionales">
-          <li><a href="https://github.com/mauricioedlg" target="_blank" rel="noopener noreferrer"><svg class="icon icon-brand" aria-hidden="true"><use href="#github-icon"/></svg><span>GitHub<span class="sr-only"> (abre en una pestaña nueva)</span></span></a></li>
-          <li><a href="https://www.linkedin.com/in/mauricio-estrada-de-la-garza-4939891a0/" target="_blank" rel="noopener noreferrer"><svg class="icon icon-brand" aria-hidden="true"><use href="#linkedin-icon"/></svg><span>LinkedIn<span class="sr-only"> (abre en una pestaña nueva)</span></span></a></li>
+        <ul class="hero-social-links" aria-label="Perfiles profesionales" data-i18n-aria-label="home.social.label">
+          <li><a href="https://github.com/mauricioedlg" target="_blank" rel="noopener noreferrer"><svg class="icon icon-brand" aria-hidden="true"><use href="#github-icon"/></svg><span>GitHub<span class="sr-only"> <span data-i18n="common.newTab">(abre en una pestaña nueva)</span></span></span></a></li>
+          <li><a href="https://www.linkedin.com/in/mauricio-estrada-de-la-garza-4939891a0/" target="_blank" rel="noopener noreferrer"><svg class="icon icon-brand" aria-hidden="true"><use href="#linkedin-icon"/></svg><span>LinkedIn<span class="sr-only"> <span data-i18n="common.newTab">(abre en una pestaña nueva)</span></span></span></a></li>
         </ul>
         <div class="hero-bio">
-          <p>Estudio Ingeniería en Desarrollo de Software y curso el octavo semestre, con graduación prevista en diciembre de 2026.
-            Tengo experiencia en desarrollo web, análisis de datos, plataformas en la nube, bases de datos y desarrollo de aplicaciones móviles.
+          <p><span data-i18n="home.biography">Estudio Ingeniería en Desarrollo de Software y curso el octavo semestre, con graduación prevista en diciembre de 2026.
+            Tengo experiencia en desarrollo web, análisis de datos, plataformas en la nube, bases de datos y desarrollo de aplicaciones móviles.</span>
           </p>
         </div>
       </div>
@@ -68,29 +70,29 @@
 
     <section class="section education-section" id="educacion" aria-labelledby="educacion-titulo">
       <div class="container">
-        <div class="section-heading"><p class="eyebrow section-number">01 / Formación</p><h2 id="educacion-titulo">Educación</h2></div>
+        <div class="section-heading"><p class="eyebrow section-number"><span data-i18n="home.education.eyebrow">01 / Formación</span></p><h2 id="educacion-titulo"><span data-i18n="common.nav.education">Educación</span></h2></div>
         <div class="education-grid">
           <article class="education-card" aria-labelledby="carrera-titulo">
             <img class="education-logo" src="assets/tecmilenio-logo.svg" alt="Universidad Tecmilenio" width="244" height="48" loading="lazy" decoding="async">
-            <p class="education-university">Universidad Tecmilenio · Campus Las Torres</p>
-            <h3 id="carrera-titulo">Ingeniería en Desarrollo de Software</h3>
-            <p class="period"><time datetime="2023-01">Enero 2023</time> — <time datetime="2026-12">Diciembre 2026</time></p>
-            <p class="education-description">Formación en bases de datos relacionales, análisis y visualización de datos, desarrollo de aplicaciones web y móviles, fundamentos de machine learning y plataformas en la nube.</p>
+            <p class="education-university"><span data-i18n="home.education.university">Universidad Tecmilenio · Campus Las Torres</span></p>
+            <h3 id="carrera-titulo"><span data-i18n="home.degree">Ingeniería en Desarrollo de Software</span></h3>
+            <p class="period"><time datetime="2023-01"><span data-i18n="home.education.start">Enero 2023</span></time> — <time datetime="2026-12"><span data-i18n="home.education.end">Diciembre 2026</span></time></p>
+            <p class="education-description"><span data-i18n="home.education.description">Formación en bases de datos relacionales, análisis y visualización de datos, desarrollo de aplicaciones web y móviles, fundamentos de machine learning y plataformas en la nube.</span></p>
           </article>
           <div class="certifications" aria-labelledby="certificaciones-titulo">
-            <h3 id="certificaciones-titulo">Certificados</h3>
+            <h3 id="certificaciones-titulo"><span data-i18n="home.certificates.title">Certificados</span></h3>
             <ul class="certificate-list">
               <li class="certificate-card">
                 <img class="certificate-image" src="assets/certificaciones/aplicaciones-moviles.svg" alt="" width="640" height="320" loading="lazy" decoding="async">
-                <div class="certificate-copy"><h4>Desarrollo de Aplicaciones Móviles</h4><p>Desarrollo de aplicaciones para Android e iOS.</p><span class="certificate-provider">Tecmilenio</span></div>
+                <div class="certificate-copy"><h4><span data-i18n="home.certificates.mobile.title">Desarrollo de Aplicaciones Móviles</span></h4><p><span data-i18n="home.certificates.mobile.description">Desarrollo de aplicaciones para Android e iOS.</span></p><span class="certificate-provider">Tecmilenio</span></div>
               </li>
               <li class="certificate-card">
                 <img class="certificate-image" src="assets/certificaciones/big-data.svg" alt="" width="640" height="320" loading="lazy" decoding="async">
-                <div class="certificate-copy"><h4>Big Data</h4><p>Análisis de datos, machine learning y plataformas en la nube con AWS.</p><span class="certificate-provider">Tecmilenio</span></div>
+                <div class="certificate-copy"><h4>Big Data</h4><p><span data-i18n="home.certificates.data.description">Análisis de datos, machine learning y plataformas en la nube con AWS.</span></p><span class="certificate-provider">Tecmilenio</span></div>
               </li>
               <li class="certificate-card">
                 <img class="certificate-image" src="assets/certificaciones/instituciones-financieras.svg" alt="" width="640" height="320" loading="lazy" decoding="async">
-                <div class="certificate-copy"><h4>Administración de Instituciones Financieras</h4><p>Estudio del sistema financiero mexicano.</p><span class="certificate-provider">Tecmilenio</span></div>
+                <div class="certificate-copy"><h4><span data-i18n="home.certificates.finance.title">Administración de Instituciones Financieras</span></h4><p><span data-i18n="home.certificates.finance.description">Estudio del sistema financiero mexicano.</span></p><span class="certificate-provider">Tecmilenio</span></div>
               </li>
 
             </ul>
@@ -101,49 +103,49 @@
 
     <section class="section experience-section" id="experiencia" aria-labelledby="experiencia-titulo">
       <div class="container">
-        <div class="section-heading"><p class="eyebrow section-number">02 / Trayectoria</p><h2 id="experiencia-titulo">Experiencia laboral</h2></div>
+        <div class="section-heading"><p class="eyebrow section-number"><span data-i18n="home.experience.eyebrow">02 / Trayectoria</span></p><h2 id="experiencia-titulo"><span data-i18n="home.experience.title">Experiencia laboral</span></h2></div>
         <div class="experience-grid">
           <article class="experience-card" aria-labelledby="experiencia-cemex">
-            <div class="experience-gallery" role="group" aria-label="Fotografías de mi experiencia en CEMEX">
+            <div class="experience-gallery" role="group" aria-label="Fotografías de mi experiencia en CEMEX" data-i18n-aria-label="home.experience.cemex.gallery">
               <a class="experience-photo" href="fotoCemex1.webp" target="_blank" rel="noopener noreferrer">
-                <img src="fotoCemex1.webp" alt="Laptop de trabajo frente a las pantallas de monitoreo de CEMEX" width="1200" height="1600" loading="lazy" decoding="async">
-                <span class="sr-only">Ver foto completa en una pestaña nueva</span>
+                <img src="fotoCemex1.webp" alt="Laptop de trabajo frente a las pantallas de monitoreo de CEMEX" data-i18n-alt="home.experience.cemex.photo1" width="1200" height="1600" loading="lazy" decoding="async">
+                <span class="sr-only"><span data-i18n="home.experience.fullPhoto">Ver foto completa en una pestaña nueva</span></span>
               </a>
               <a class="experience-photo" href="fotoCemex2.webp" target="_blank" rel="noopener noreferrer">
-                <img src="fotoCemex2.webp" alt="Área de trabajo de CEMEX con estaciones y pantallas de monitoreo" width="908" height="1600" loading="lazy" decoding="async">
-                <span class="sr-only">Ver foto completa en una pestaña nueva</span>
+                <img src="fotoCemex2.webp" alt="Área de trabajo de CEMEX con estaciones y pantallas de monitoreo" data-i18n-alt="home.experience.cemex.photo2" width="908" height="1600" loading="lazy" decoding="async">
+                <span class="sr-only"><span data-i18n="home.experience.fullPhoto">Ver foto completa en una pestaña nueva</span></span>
               </a>
             </div>
             <div class="experience-card-body">
-              <div class="experience-meta"><h3 id="experiencia-cemex"><img class="company-logo" src="assets/cemex-logo.svg" alt="CEMEX" width="1664" height="297" decoding="async"></h3><p class="period"><time datetime="2026-01">Enero 2026</time> — <time datetime="2026-07">Julio 2026</time></p></div>
-              <h4 class="experience-role">Practicante de Operaciones</h4>
+              <div class="experience-meta"><h3 id="experiencia-cemex"><img class="company-logo" src="assets/cemex-logo.svg" alt="CEMEX" width="1664" height="297" decoding="async"></h3><p class="period"><time datetime="2026-01"><span data-i18n="home.experience.cemex.start">Enero 2026</span></time> — <time datetime="2026-07"><span data-i18n="home.experience.cemex.end">Julio 2026</span></time></p></div>
+              <h4 class="experience-role"><span data-i18n="home.experience.cemex.role">Practicante de Operaciones</span></h4>
               <ul class="experience-tasks">
-                <li>Desarrollo de aplicación web para monitorear procesos de los compuestos químicos dentro de los hornos en las plantas</li>
-                <li>Participe en el desarrollo de otra aplicación web para monitorear los procesos de los transformadores en las maquinas de las plantas</li>
-                <li>Aprendi a utilizar el API de PIDataLink para mandar los datos que registraba de las maquinas</li>
-                <li>Migración masiva de datos de hojas de cálculo a bases de datos.</li>
+                <li><span data-i18n="home.experience.cemex.task1">Desarrollo de aplicación web para monitorear procesos de los compuestos químicos dentro de los hornos en las plantas</span></li>
+                <li><span data-i18n="home.experience.cemex.task2">Participe en el desarrollo de otra aplicación web para monitorear los procesos de los transformadores en las maquinas de las plantas</span></li>
+                <li><span data-i18n="home.experience.cemex.task3">Aprendi a utilizar el API de PIDataLink para mandar los datos que registraba de las maquinas</span></li>
+                <li><span data-i18n="home.experience.dataMigration">Migración masiva de datos de hojas de cálculo a bases de datos.</span></li>
               </ul>
             </div>
           </article>
           <article class="experience-card" aria-labelledby="experiencia-clarios">
-            <div class="experience-gallery" role="group" aria-label="Fotografías de mi experiencia en Clarios">
+            <div class="experience-gallery" role="group" aria-label="Fotografías de mi experiencia en Clarios" data-i18n-aria-label="home.experience.clarios.gallery">
               <a class="experience-photo" href="fotoClarios1.webp" target="_blank" rel="noopener noreferrer">
-                <img src="fotoClarios1.webp" alt="Escritorio de trabajo en Clarios con laptop y monitor de automatizaciones" width="900" height="1600" loading="lazy" decoding="async">
-                <span class="sr-only">Ver foto completa en una pestaña nueva</span>
+                <img src="fotoClarios1.webp" alt="Escritorio de trabajo en Clarios con laptop y monitor de automatizaciones" data-i18n-alt="home.experience.clarios.photo1" width="900" height="1600" loading="lazy" decoding="async">
+                <span class="sr-only"><span data-i18n="home.experience.fullPhoto">Ver foto completa en una pestaña nueva</span></span>
               </a>
               <a class="experience-photo" href="fotoClarios2.webp" target="_blank" rel="noopener noreferrer">
-                <img src="fotoClarios2.webp" alt="Recepción de Clarios con su logotipo y exhibición de baterías LTH" width="1200" height="1600" loading="lazy" decoding="async">
-                <span class="sr-only">Ver foto completa en una pestaña nueva</span>
+                <img src="fotoClarios2.webp" alt="Recepción de Clarios con su logotipo y exhibición de baterías LTH" data-i18n-alt="home.experience.clarios.photo2" width="1200" height="1600" loading="lazy" decoding="async">
+                <span class="sr-only"><span data-i18n="home.experience.fullPhoto">Ver foto completa en una pestaña nueva</span></span>
               </a>
             </div>
             <div class="experience-card-body">
-              <div class="experience-meta"><h3 id="experiencia-clarios"><img class="company-logo" src="assets/clarios-logo.svg" alt="Clarios" width="320" height="70" decoding="async"></h3><p class="period"><time datetime="2025-03">Marzo 2025</time> — <time datetime="2025-12">Diciembre 2025</time></p></div>
+              <div class="experience-meta"><h3 id="experiencia-clarios"><img class="company-logo" src="assets/clarios-logo.svg" alt="Clarios" width="320" height="70" decoding="async"></h3><p class="period"><time datetime="2025-03"><span data-i18n="home.experience.clarios.start">Marzo 2025</span></time> — <time datetime="2025-12"><span data-i18n="home.experience.clarios.end">Diciembre 2025</span></time></p></div>
               <h4 class="experience-role">Intern EHS / Supply Chain</h4>
               <ul class="experience-tasks">
-                <li>Creacion de dashboards en la web para monitorear operaciones del equipo de ambiental para todas las plantas a nivel nacional.</li>
-                <li>Desarrollo de una aplicación web para aprobar la compra de refacciones en todas las plantas de la empresa en Mexico.</li>
-                <li>Ayude a desarrollar un bot para registrar automáticamente precios de cotizaciones de proveedores en el sistema empresarial.</li>
-                <li>Migración masiva de datos de hojas de cálculo a bases de datos.</li>
+                <li><span data-i18n="home.experience.clarios.task1">Creacion de dashboards en la web para monitorear operaciones del equipo de ambiental para todas las plantas a nivel nacional.</span></li>
+                <li><span data-i18n="home.experience.clarios.task2">Desarrollo de una aplicación web para aprobar la compra de refacciones en todas las plantas de la empresa en Mexico.</span></li>
+                <li><span data-i18n="home.experience.clarios.task3">Ayude a desarrollar un bot para registrar automáticamente precios de cotizaciones de proveedores en el sistema empresarial.</span></li>
+                <li><span data-i18n="home.experience.dataMigration">Migración masiva de datos de hojas de cálculo a bases de datos.</span></li>
               </ul>
             </div>
           </article>
@@ -153,62 +155,62 @@
 
     <section class="section projects-section" id="proyectos" aria-labelledby="proyectos-titulo">
       <div class="container">
-        <div class="section-heading"><p class="eyebrow section-number">03 / Portafolio</p><h2 id="proyectos-titulo">Proyectos desarrollados</h2></div>
+        <div class="section-heading"><p class="eyebrow section-number"><span data-i18n="home.projects.eyebrow">03 / Portafolio</span></p><h2 id="proyectos-titulo"><span data-i18n="home.projects.title">Proyectos desarrollados</span></h2></div>
         <!-- PROYECTOS: Grinsa Manufacturas, Aplicación en React Native, Réplica Aplicación de Refacciones Clarios y App Finanzas Mauricio.
              Duplica un article y asigna un identificador único para añadir otro proyecto. -->
         <div class="project-list" id="lista-proyectos">
           <article class="project-card" aria-labelledby="proyecto-01">
-            <img class="project-image project-screenshot" src="assets/grinsa-manufacturas.webp" alt="Captura del sitio web de Grinsa Manufacturas con su galería de proyectos realizados" width="1350" height="627" loading="lazy" decoding="async">
+            <img class="project-image project-screenshot" src="assets/grinsa-manufacturas.webp" alt="Captura del sitio web de Grinsa Manufacturas con su galería de proyectos realizados" data-i18n-alt="home.projects.grinsa.image" width="1350" height="627" loading="lazy" decoding="async">
             <div class="card-body">
-              <p class="eyebrow project-kind">Sitio web</p>
-              <h3 id="proyecto-01">Sitio web de Grinsa Manufacturas</h3>
-              <p class="project-description">Desarrollé el sitio web del negocio de mi papá para que pueda comenzar a anunciarse en Google Ads y captar más prospectos.</p>
-              <ul class="tags" aria-label="Tecnologías de Grinsa Manufacturas"><li>React</li><li>Bootstrap</li><li>Django</li><li>Brevo API</li><li>Render</li></ul>
+              <p class="eyebrow project-kind"><span data-i18n="home.projects.website">Sitio web</span></p>
+              <h3 id="proyecto-01"><span data-i18n="home.projects.grinsa.title">Sitio web de Grinsa Manufacturas</span></h3>
+              <p class="project-description"><span data-i18n="home.projects.grinsa.description">Desarrollé el sitio web del negocio de mi papá para que pueda comenzar a anunciarse en Google Ads y captar más prospectos.</span></p>
+              <ul class="tags" aria-label="Tecnologías de Grinsa Manufacturas" data-i18n-aria-label="home.projects.grinsa.technologies"><li>React</li><li>Bootstrap</li><li>Django</li><li>Brevo API</li><li>Render</li></ul>
             </div>
-            <div class="project-links" role="group" aria-label="Enlaces de Grinsa Manufacturas">
-                <a class="button button-primary" href="https://www.grinsa.mx/" target="_blank" rel="noopener noreferrer">Ver sitio web <span class="sr-only">(abre en una pestaña nueva)</span><svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a>
-                <a class="button button-outline" href="https://github.com/paginagrinsa/grinsaManufacturas/tree/2.5" target="_blank" rel="noopener noreferrer">Ver repositorio <span class="sr-only">en GitHub (abre en una pestaña nueva)</span><svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a>
+            <div class="project-links" role="group" aria-label="Enlaces de Grinsa Manufacturas" data-i18n-aria-label="home.projects.grinsa.links">
+                <a class="button button-primary" href="https://www.grinsa.mx/" target="_blank" rel="noopener noreferrer"><span data-i18n="home.projects.viewWebsite">Ver sitio web</span> <span class="sr-only"><span data-i18n="common.newTab">(abre en una pestaña nueva)</span></span><svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a>
+                <a class="button button-outline" href="https://github.com/paginagrinsa/grinsaManufacturas/tree/2.5" target="_blank" rel="noopener noreferrer"><span data-i18n="common.viewRepository">Ver repositorio</span> <span class="sr-only"><span data-i18n="common.githubNewTab">en GitHub (abre en una pestaña nueva)</span></span><svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a>
             </div>
           </article>
           <article class="project-card" aria-labelledby="proyecto-02">
-            <img class="project-image project-screenshot" src="assets/aplicacion-react-native.webp" alt="Inicio de sesión de Proyectos MEG en el navegador con el botón ¿Olvidaste tu contraseña?" width="1365" height="767" loading="lazy" decoding="async">
+            <img class="project-image project-screenshot" src="assets/aplicacion-react-native.webp" alt="Inicio de sesión de Proyectos MEG en el navegador con el botón ¿Olvidaste tu contraseña?" data-i18n-alt="home.projects.reactNative.image" width="1365" height="767" loading="lazy" decoding="async">
             <div class="card-body">
-              <p class="eyebrow project-kind">Aplicación móvil</p>
-              <h3 id="proyecto-02">Aplicación en React Native</h3>
-              <p class="project-description">Proyecto final de mi certificado en aplicaciones móviles: desarrollé una app de automatización de servicios profesionales que integra CRM, finanzas y gestión de proyectos, enfocada principalmente en empresas de software. Implementé un contenedor de Docker para ejecutar el frontend y backend en un mismo servicio desplegado en Render .</p>
-              <ul class="tags" aria-label="Tecnologías de la aplicación en React Native"><li>React Native</li><li>CSS</li><li>Django</li><li>PostgreSQL</li><li>Neon</li><li>Docker</li><li>Render</li></ul>
+              <p class="eyebrow project-kind"><span data-i18n="home.projects.mobile">Aplicación móvil</span></p>
+              <h3 id="proyecto-02"><span data-i18n="home.projects.reactNative.title">Aplicación en React Native</span></h3>
+              <p class="project-description"><span data-i18n="home.projects.reactNative.description">Proyecto final de mi certificado en aplicaciones móviles: desarrollé una app de automatización de servicios profesionales que integra CRM, finanzas y gestión de proyectos, enfocada principalmente en empresas de software. Implementé un contenedor de Docker para ejecutar el frontend y backend en un mismo servicio desplegado en Render .</span></p>
+              <ul class="tags" aria-label="Tecnologías de la aplicación en React Native" data-i18n-aria-label="home.projects.reactNative.technologies"><li>React Native</li><li>CSS</li><li>Django</li><li>PostgreSQL</li><li>Neon</li><li>Docker</li><li>Render</li></ul>
             </div>
-            <div class="project-links" role="group" aria-label="Enlaces de la aplicación en React Native">
-                <a class="button button-project-details" href="proyecto-react-native.html"><svg class="icon" aria-hidden="true"><use href="#photos-icon"/></svg>Ver más detalles del proyecto<span class="sr-only"> de la aplicación en React Native</span></a>
-                <a class="button button-primary" href="https://aplicacionreactnative.onrender.com/login" target="_blank" rel="noopener noreferrer">Versión web <span class="sr-only">(abre en una pestaña nueva)</span><svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a>
-                <a class="button button-outline" href="https://github.com/mauricioedlg/aplicacionReactNative/tree/v1" target="_blank" rel="noopener noreferrer">Ver repositorio <span class="sr-only">en GitHub (abre en una pestaña nueva)</span><svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a>
+            <div class="project-links" role="group" aria-label="Enlaces de la aplicación en React Native" data-i18n-aria-label="home.projects.reactNative.links">
+                <a class="button button-project-details" href="proyecto-react-native.html"><svg class="icon" aria-hidden="true"><use href="#photos-icon"/></svg><span data-i18n="home.projects.details">Ver más detalles del proyecto</span><span class="sr-only"> <span data-i18n="home.projects.reactNative.detailsLabel">de la aplicación en React Native</span></span></a>
+                <a class="button button-primary" href="https://aplicacionreactnative.onrender.com/login" target="_blank" rel="noopener noreferrer"><span data-i18n="common.webVersion">Versión web</span> <span class="sr-only"><span data-i18n="common.newTab">(abre en una pestaña nueva)</span></span><svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a>
+                <a class="button button-outline" href="https://github.com/mauricioedlg/aplicacionReactNative/tree/v1" target="_blank" rel="noopener noreferrer"><span data-i18n="common.viewRepository">Ver repositorio</span> <span class="sr-only"><span data-i18n="common.githubNewTab">en GitHub (abre en una pestaña nueva)</span></span><svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a>
             </div>
           </article>
           <article class="project-card" aria-labelledby="proyecto-03">
-            <img class="project-image project-screenshot" src="assets/aplicacion-refacciones-clarios.webp" alt="Pantalla de inicio de sesión de la réplica de la Aplicación de Refacciones Clarios" width="1365" height="767" loading="lazy" decoding="async">
+            <img class="project-image project-screenshot" src="assets/aplicacion-refacciones-clarios.webp" alt="Pantalla de inicio de sesión de la réplica de la Aplicación de Refacciones Clarios" data-i18n-alt="home.projects.spareParts.image" width="1365" height="767" loading="lazy" decoding="async">
             <div class="card-body">
-              <p class="eyebrow project-kind">Aplicación web</p>
-              <h3 id="proyecto-03">Réplica Aplicación de Refacciones Clarios</h3>
-              <p class="project-description">Como proyecto final de mi clase de aplicaciones web, desarrollé una réplica del sistema en el que trabajé durante mis prácticas en Clarios, utilizando mis propios recursos y datos.</p>
-              <ul class="tags" aria-label="Tecnologías de la réplica de la Aplicación de Refacciones Clarios"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Django</li><li>SQL Server</li><li>PostgreSQL</li><li>Neon</li><li>Render</li></ul>
+              <p class="eyebrow project-kind"><span data-i18n="home.projects.web">Aplicación web</span></p>
+              <h3 id="proyecto-03"><span data-i18n="home.projects.spareParts.title">Réplica Aplicación de Refacciones Clarios</span></h3>
+              <p class="project-description"><span data-i18n="home.projects.spareParts.description">Como proyecto final de mi clase de aplicaciones web, desarrollé una réplica del sistema en el que trabajé durante mis prácticas en Clarios, utilizando mis propios recursos y datos.</span></p>
+              <ul class="tags" aria-label="Tecnologías de la réplica de la Aplicación de Refacciones Clarios" data-i18n-aria-label="home.projects.spareParts.technologies"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Django</li><li>SQL Server</li><li>PostgreSQL</li><li>Neon</li><li>Render</li></ul>
             </div>
-            <div class="project-links" role="group" aria-label="Enlaces de la réplica de la Aplicación de Refacciones Clarios">
-                <a class="button button-project-details" href="proyecto-refacciones.html"><svg class="icon" aria-hidden="true"><use href="#photos-icon"/></svg>Ver más detalles del proyecto<span class="sr-only"> de la Aplicación de Refacciones Clarios</span></a>
-                <a class="button button-primary" href="https://apprefacciones.onrender.com/index.html" target="_blank" rel="noopener noreferrer">Ver aplicación web <span class="sr-only">(abre en una pestaña nueva)</span><svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a>
-                <a class="button button-outline" href="https://github.com/mauricioedlg/appRefacciones" target="_blank" rel="noopener noreferrer">Ver repositorio <span class="sr-only">en GitHub (abre en una pestaña nueva)</span><svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a>
+            <div class="project-links" role="group" aria-label="Enlaces de la réplica de la Aplicación de Refacciones Clarios" data-i18n-aria-label="home.projects.spareParts.links">
+                <a class="button button-project-details" href="proyecto-refacciones.html"><svg class="icon" aria-hidden="true"><use href="#photos-icon"/></svg><span data-i18n="home.projects.details">Ver más detalles del proyecto</span><span class="sr-only"> <span data-i18n="home.projects.spareParts.detailsLabel">de la Aplicación de Refacciones Clarios</span></span></a>
+                <a class="button button-primary" href="https://apprefacciones.onrender.com/index.html" target="_blank" rel="noopener noreferrer"><span data-i18n="common.viewWebApp">Ver aplicación web</span> <span class="sr-only"><span data-i18n="common.newTab">(abre en una pestaña nueva)</span></span><svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a>
+                <a class="button button-outline" href="https://github.com/mauricioedlg/appRefacciones" target="_blank" rel="noopener noreferrer"><span data-i18n="common.viewRepository">Ver repositorio</span> <span class="sr-only"><span data-i18n="common.githubNewTab">en GitHub (abre en una pestaña nueva)</span></span><svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a>
             </div>
           </article>
           <article class="project-card" aria-labelledby="proyecto-04">
-            <img class="project-image project-screenshot" src="assets/app-finanzas-mauricio.webp" alt="Panel de inicio de App Finanzas Mauricio en el navegador con patrimonio total, gráfica de evolución y distribución de activos en un mercado simulado" width="1365" height="767" loading="lazy" decoding="async">
+            <img class="project-image project-screenshot" src="assets/app-finanzas-mauricio.webp" alt="Panel de inicio de App Finanzas Mauricio en el navegador con patrimonio total, gráfica de evolución y distribución de activos en un mercado simulado" data-i18n-alt="home.projects.finance.image" width="1365" height="767" loading="lazy" decoding="async">
             <div class="card-body">
-              <p class="eyebrow project-kind">Aplicación web · En desarrollo</p>
+              <p class="eyebrow project-kind"><span data-i18n="home.projects.inDevelopment">Aplicación web · En desarrollo</span></p>
               <h3 id="proyecto-04">App Finanzas Mauricio</h3>
-              <p class="project-description"><strong>Versión web del proyecto iOS · App de finanzas.</strong> Estoy desarrollando una versión mejorada para el navegador de la aplicación que creé en Swift como proyecto final de mi clase de aplicaciones en iOS. Es una app inspirada en GBM para simular la compra y venta de acciones de la Bolsa Mexicana de Valores.</p>
-              <ul class="tags" aria-label="Tecnologías de App Finanzas Mauricio"><li>React</li><li>Bootstrap</li><li>Django</li><li>PostgreSQL</li><li>Neon</li><li>Resend API</li><li>Stripe API</li></ul>
+              <p class="project-description"><strong><span data-i18n="home.projects.finance.summary">Versión web del proyecto iOS · App de finanzas.</span></strong> <span data-i18n="home.projects.finance.description">Estoy desarrollando una versión mejorada para el navegador de la aplicación que creé en Swift como proyecto final de mi clase de aplicaciones en iOS. Es una app inspirada en GBM para simular la compra y venta de acciones de la Bolsa Mexicana de Valores.</span></p>
+              <ul class="tags" aria-label="Tecnologías de App Finanzas Mauricio" data-i18n-aria-label="home.projects.finance.technologies"><li>React</li><li>Bootstrap</li><li>Django</li><li>PostgreSQL</li><li>Neon</li><li>Resend API</li><li>Stripe API</li></ul>
             </div>
-            <div class="project-links" role="group" aria-label="Enlaces de App Finanzas Mauricio">
-                <a class="button button-project-details" href="proyecto-app-finanzas.html"><svg class="icon" aria-hidden="true"><use href="#photos-icon"/></svg>Ver más detalles del proyecto<span class="sr-only"> App Finanzas Mauricio</span></a>
-                <a class="button button-outline" href="https://github.com/mauricioedlg/replicaAppFinanzas" target="_blank" rel="noopener noreferrer">Ver repositorio <span class="sr-only">en GitHub (abre en una pestaña nueva)</span><svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a>
+            <div class="project-links" role="group" aria-label="Enlaces de App Finanzas Mauricio" data-i18n-aria-label="home.projects.finance.links">
+                <a class="button button-project-details" href="proyecto-app-finanzas.html"><svg class="icon" aria-hidden="true"><use href="#photos-icon"/></svg><span data-i18n="home.projects.details">Ver más detalles del proyecto</span><span class="sr-only"> App Finanzas Mauricio</span></a>
+                <a class="button button-outline" href="https://github.com/mauricioedlg/replicaAppFinanzas" target="_blank" rel="noopener noreferrer"><span data-i18n="common.viewRepository">Ver repositorio</span> <span class="sr-only"><span data-i18n="common.githubNewTab">en GitHub (abre en una pestaña nueva)</span></span><svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a>
             </div>
           </article>
         </div>
@@ -217,27 +219,27 @@
 
     <section class="section competencies-section" id="competencias" aria-labelledby="competencias-titulo">
       <div class="container">
-        <div class="section-heading"><p class="eyebrow section-number">04 / Competencias</p><h2 id="competencias-titulo">Habilidades y herramientas</h2></div>
+        <div class="section-heading"><p class="eyebrow section-number"><span data-i18n="home.skills.eyebrow">04 / Competencias</span></p><h2 id="competencias-titulo"><span data-i18n="home.skills.title">Habilidades y herramientas</span></h2></div>
         <div class="competencies-grid">
           <article class="competency-card" aria-labelledby="habilidades-titulo">
             <span class="competency-icon"><svg class="icon" aria-hidden="true"><use href="#people-icon"/></svg></span>
-            <h3 id="habilidades-titulo">Habilidades</h3>
-            <ul class="skill-list"><li>Pensamiento analítico</li><li>Comunicación efectiva</li><li>Trabajo en equipo</li><li>Resolución de problemas</li><li>Adaptabilidad</li><li>Responsabilidad</li><li>Organización del tiempo</li><li>Toma de decisiones</li></ul>
+            <h3 id="habilidades-titulo"><span data-i18n="home.skills.soft.title">Habilidades</span></h3>
+            <ul class="skill-list"><li><span data-i18n="home.skills.analytical">Pensamiento analítico</span></li><li><span data-i18n="home.skills.communication">Comunicación efectiva</span></li><li><span data-i18n="home.skills.teamwork">Trabajo en equipo</span></li><li><span data-i18n="home.skills.problemSolving">Resolución de problemas</span></li><li><span data-i18n="home.skills.adaptability">Adaptabilidad</span></li><li><span data-i18n="home.skills.responsibility">Responsabilidad</span></li><li><span data-i18n="home.skills.timeManagement">Organización del tiempo</span></li><li><span data-i18n="home.skills.decisionMaking">Toma de decisiones</span></li></ul>
           </article>
           <article class="competency-card technology-card" aria-labelledby="tecnologias-titulo">
             <span class="competency-icon"><svg class="icon" aria-hidden="true"><use href="#code-icon"/></svg></span>
-            <h3 id="tecnologias-titulo">Tecnologías</h3>
+            <h3 id="tecnologias-titulo"><span data-i18n="home.skills.technologies">Tecnologías</span></h3>
             <dl class="technology-list">
               <div><dt>Frontend</dt><dd>React, HTML, CSS, JavaScript</dd></div>
               <div><dt>Backend</dt><dd>Python, Django, Node.js, Express, C#, .NET, Java</dd></div>
-              <div><dt>Bases de datos</dt><dd>SQL, MySQL, SQL Server, PostgreSQL</dd></div>
-              <div><dt>Nube</dt><dd>Azure, AWS</dd></div>
+              <div><dt><span data-i18n="home.skills.databases">Bases de datos</span></dt><dd>SQL, MySQL, SQL Server, PostgreSQL</dd></div>
+              <div><dt><span data-i18n="home.skills.cloud">Nube</span></dt><dd>Azure, AWS</dd></div>
             </dl>
           </article>
           <article class="competency-card" aria-labelledby="idiomas-titulo">
             <span class="competency-icon"><svg class="icon" aria-hidden="true"><use href="#language-icon"/></svg></span>
-            <h3 id="idiomas-titulo">Idiomas</h3>
-            <dl class="language-list"><div><dt>Español</dt><dd>Nativo</dd></div><div><dt>Inglés</dt><dd>Avanzado</dd></div></dl>
+            <h3 id="idiomas-titulo"><span data-i18n="home.languages.title">Idiomas</span></h3>
+            <dl class="language-list"><div><dt><span data-i18n="home.languages.spanish">Español</span></dt><dd><span data-i18n="home.languages.native">Nativo</span></dd></div><div><dt><span data-i18n="home.languages.english">Inglés</span></dt><dd><span data-i18n="home.languages.advanced">Avanzado</span></dd></div></dl>
           </article>
         </div>
       </div>
@@ -245,13 +247,13 @@
 
     <section class="container contact-section" id="contacto" aria-labelledby="contacto-titulo">
       <div class="contact-panel">
-        <div><p class="eyebrow">Contacto</p><h2 id="contacto-titulo">¿Hablamos?</h2><p>Si mi perfil encaja con tu equipo o tienes un proyecto en mente, puedes escribirme.</p></div>
+        <div><p class="eyebrow"><span data-i18n="common.contact.eyebrow">Contacto</span></p><h2 id="contacto-titulo"><span data-i18n="common.contact.title">¿Hablamos?</span></h2><p><span data-i18n="common.contact.description">Si mi perfil encaja con tu equipo o tienes un proyecto en mente, puedes escribirme.</span></p></div>
         <a class="button button-contact" href="mailto:mauricioestrada580@gmail.com"><svg class="icon" aria-hidden="true"><use href="#mail-icon"/></svg><span>mauricioestrada580<wbr>@gmail.com</span></a>
       </div>
     </section>
   </main>
   <footer class="site-footer">
-    <div class="container footer-inner"><p>Mauricio Estrada de la Garza <span>· Monterrey, N.L.</span></p><a href="#inicio">Volver arriba <svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a></div>
+    <div class="container footer-inner"><p>Mauricio Estrada de la Garza <span>· Monterrey, N.L.</span></p><a href="#inicio"><span data-i18n="common.backTop">Volver arriba</span> <svg class="icon" aria-hidden="true"><use href="#arrow-up-right"/></svg></a></div>
   </footer>
 </body>
 </html>

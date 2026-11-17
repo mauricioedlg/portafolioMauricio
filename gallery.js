@@ -1,5 +1,11 @@
-(() => {
+(async () => {
   'use strict';
+
+  const i18n = window.portfolioI18n;
+  if (i18n?.ready) await i18n.ready;
+  const t = (key, vars = {}, fallback = '') => i18n?.t
+    ? i18n.t(key, vars, fallback)
+    : fallback.replace(/\{(\w+)\}/g, (match, name) => vars[name] ?? match);
 
   const galleryPages = {
     'react-native': 'proyecto-react-native.html',
@@ -14,7 +20,9 @@
       if (!/^#galeria=[^&]+$/.test(window.location.hash)) return;
       const key = new URLSearchParams(window.location.hash.slice(1)).get('galeria');
       if (Object.prototype.hasOwnProperty.call(galleryPages, key)) {
-        window.location.replace(new URL(galleryPages[key], window.location.href).href);
+        const destination = new URL(galleryPages[key], window.location.href);
+        destination.search = window.location.search;
+        window.location.replace(i18n?.localizeUrl ? i18n.localizeUrl(destination.href) : destination.href);
       }
     }
     window.addEventListener('hashchange', redirectLegacyGallery);
@@ -22,7 +30,25 @@
     return;
   }
 
-  const gallery = window.portfolioGalleries?.[galleryElement.dataset.gallery];
+  const galleryKey = galleryElement.dataset.gallery;
+  const originalGallery = window.portfolioGalleries?.[galleryKey];
+  const galleryPrefix = `galleries.${galleryKey}`;
+  const gallery = originalGallery && {
+    ...originalGallery,
+    workflow: originalGallery.workflow?.map((text, index) => t(`${galleryPrefix}.workflow.${index}`, {}, text)),
+    modules: originalGallery.modules.map(module => {
+      const modulePrefix = `${galleryPrefix}.modules.${module.id}`;
+      return {
+        ...module,
+        label: t(`${modulePrefix}.label`, {}, module.label),
+        photos: module.photos.map((photo, index) => ({
+          ...photo,
+          alt: t(`${modulePrefix}.photos.${index}.alt`, {}, photo.alt),
+          caption: t(`${modulePrefix}.photos.${index}.caption`, {}, photo.caption)
+        }))
+      };
+    })
+  };
   const modules = gallery?.modules.filter(module => module.photos.length > 0);
   if (!modules?.length) return;
 
@@ -52,7 +78,9 @@
   function setZoom(enabled) {
     figure.classList.toggle('is-zoomed', enabled);
     zoom.setAttribute('aria-pressed', String(enabled));
-    zoom.textContent = enabled ? 'Ajustar imagen' : 'Ampliar imagen';
+    zoom.textContent = enabled
+      ? t('gallery.zoomFit', {}, 'Ajustar imagen')
+      : t('gallery.zoomIn', {}, 'Ampliar imagen');
     image.style.width = enabled ? `${Math.max(image.naturalWidth, figure.clientWidth * 2)}px` : '';
     figure.scrollLeft = enabled ? (figure.scrollWidth - figure.clientWidth) / 2 : 0;
     figure.scrollTop = 0;
@@ -64,7 +92,7 @@
     if (loaded) viewer.style.setProperty('--gallery-image-ratio', `${image.naturalWidth} / ${image.naturalHeight}`);
     zoom.disabled = !loaded;
     image.hidden = !loaded;
-    imageStatus.textContent = loaded ? '' : 'No se pudo cargar esta imagen. Prueba con otra foto.';
+    imageStatus.textContent = loaded ? '' : t('gallery.loadError', {}, 'No se pudo cargar esta imagen. Prueba con otra foto.');
     imageStatus.hidden = loaded;
   }
 
@@ -77,14 +105,14 @@
     zoom.disabled = true;
     image.hidden = false;
     image.alt = photo.alt;
-    imageStatus.textContent = 'Cargando imagen…';
+    imageStatus.textContent = t('gallery.loading', {}, 'Cargando imagen…');
     imageStatus.hidden = false;
     image.src = photo.src;
     updateImageStatus();
     currentModule.textContent = photo.moduleLabel;
     caption.textContent = photo.caption;
     imageDescription.textContent = `${photo.moduleLabel}: ${photo.caption}`;
-    position.textContent = `Foto ${currentIndex + 1} de ${visiblePhotos.length}`;
+    position.textContent = t('gallery.position', { current: currentIndex + 1, total: visiblePhotos.length }, 'Foto {current} de {total}');
     previous.disabled = next.disabled = visiblePhotos.length < 2;
 
     Array.from(thumbnails.children).forEach((button, photoIndex) => {
@@ -111,7 +139,9 @@
       const button = document.createElement('button');
       button.type = 'button';
       button.className = 'gallery-thumbnail';
-      button.setAttribute('aria-label', `Ver foto ${index + 1}: ${photo.moduleLabel}. ${photo.caption}`);
+      button.setAttribute('aria-label', t('gallery.viewPhoto', {
+        current: index + 1, module: photo.moduleLabel, caption: photo.caption
+      }, 'Ver foto {current}: {module}. {caption}'));
       const thumbnail = document.createElement('img');
       thumbnail.alt = '';
       thumbnail.width = 96;
@@ -128,7 +158,7 @@
     showPhoto(0);
   }
 
-  const options = [new Option(`Todas las fotos (${allPhotos.length})`, 'all')];
+  const options = [new Option(t('gallery.allPhotos', { total: allPhotos.length }, 'Todas las fotos ({total})'), 'all')];
   modules.forEach(module => {
     options.push(new Option(`${module.label} (${module.photos.length})`, module.id));
   });
@@ -155,19 +185,19 @@
   zoom.addEventListener('click', () => setZoom(zoom.getAttribute('aria-pressed') !== 'true'));
 
   share.addEventListener('click', async () => {
-    const url = new URL(window.location.href);
+    const url = new URL(i18n?.localizeUrl ? i18n.localizeUrl(window.location.href) : window.location.href);
     url.hash = '';
     const localHint = url.protocol === 'file:'
-      ? ' Este enlace es local. Para compartirlo con otras personas, abre tu portafolio publicado y copia el enlace desde allí.'
+      ? t('gallery.shareLocalHint', {}, ' Este enlace es local. Para compartirlo con otras personas, abre tu portafolio publicado y copia el enlace desde allí.')
       : '';
     try {
       await navigator.clipboard.writeText(url.href);
-      share.textContent = 'Enlace copiado';
+      share.textContent = t('gallery.shareCopied', {}, 'Enlace copiado');
       shareUrl.hidden = true;
-      shareStatus.textContent = `Enlace copiado.${localHint}`;
+      shareStatus.textContent = t('gallery.shareCopiedStatus', {}, 'Enlace copiado.') + localHint;
     } catch {
-      share.textContent = 'Copiar enlace';
-      shareStatus.textContent = `Selecciona y copia el enlace del campo.${localHint}`;
+      share.textContent = t('gallery.shareCopy', {}, 'Copiar enlace');
+      shareStatus.textContent = t('gallery.shareManualStatus', {}, 'Selecciona y copia el enlace del campo.') + localHint;
       shareUrl.value = url.href;
       shareUrl.hidden = false;
     }
